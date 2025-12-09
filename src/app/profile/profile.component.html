@@ -1,0 +1,22 @@
+<section class="container">
+  <h2>Perfil de Usuario</h2>
+  <div class="d-flex flex-column o align-items-center">
+    <div class=" card card-content">
+      <h3>Datos de usuario</h3>
+      <p>Nombre: {{ nombre}}</p>
+      <p>Email: {{ email}}</p>
+      <button class="btn btn-warning w-50">Editar nombre</button>
+    </div>
+  </div>
+  <!-- Agrega más detalles del perfil según sea necesario -->
+  <div>
+    <li class="nav-item">
+      <button class="btn btn-primary" (click)="goOrder()">Pedidos</button>
+    </li>
+  </div>
+  <li class="nav-item">
+    <button class="btn btn-danger" (click)="logout()" style="cursor: pointer">
+      Cerrar Sesión
+    </button>
+  </li>
+</section>

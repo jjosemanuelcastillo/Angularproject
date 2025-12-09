@@ -1,0 +1,9 @@
+<div class="container-xl my-5" *ngIf="product">
+  <div class="card shadow-sm p-4 text-center">
+    <h2 class="text-primary">{{ product.name  }}</h2>
+    <img [src]="product.image" alt="{{ product.name }}" class="img-fluid rounded my-3 w-50 m-auto">
+    <p class="text-muted">{{ product.description }}</p>
+    <h4 class="text-success">Precio: ${{ product.price }}</h4>
+    <button class="btn btn-info w-25 m-auto" (click)="verCompra(product.id)">Comprar</button>
+  </div>
+</div>

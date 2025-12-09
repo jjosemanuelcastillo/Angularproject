@@ -1,0 +1,38 @@
+<div class="container">
+  <h1>Productos recomendados</h1>
+  <div class="card p-4 mb-4 shadow-sm bg-white">
+    <div *ngIf="products.length > 0; else cargando" class="row g-4">
+      <div class="col-md-3" *ngFor="let product of products">
+        <div class="card h-100 shadow-sm position-relative bg-light" (click)="verProducto(product.id)"
+          style="cursor: pointer;">
+          <div class="card-body text-center">
+            <img [src]="product.image" alt="{{ product.name }}" class="img-fluid">
+            <p class="card-text text-muted">{{ product.description }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <h1>Productos de electrónica</h1>
+  <div class="card p-4 mb-4 shadow-sm bg-white">
+    <div *ngIf="productByElectronics.length > 0; else cargando" class="row g-4">
+      <div class="col-md-3" *ngFor="let product of productByElectronics">
+        <div class="card h-100 shadow-sm position-relative" (click)="verProducto(product.id)" style="cursor: pointer;">
+          <div class="card-body text-center">
+            <img [src]="product.image" alt="{{ product.name }}" class="img-fluid">
+            <p class="card-text text-muted">{{ product.description }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #cargando>
+  <div class="text-center my-5">
+    <p class="mt-3">No hay ningun producto recomendable todavia</p>
+  </div>
+</ng-template>

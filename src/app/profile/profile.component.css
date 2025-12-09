@@ -1,0 +1,49 @@
+.card {
+  position: relative;
+  width: 300px;
+  height: 200px;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 3px;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  padding: 8px; /* grosor del borde */
+  background: linear-gradient(45deg, red, blue, purple, red);
+  background-size: 300% 300%;
+  border-radius: 10px;
+  -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  animation: gradient-animation 5s linear infinite;
+  z-index: 1;
+}
+
+.card-content {
+  position: relative;
+  z-index: 2;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  height: 100%;
+  box-sizing: border-box;
+  color: black;
+  border: 3px;
+}
+
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

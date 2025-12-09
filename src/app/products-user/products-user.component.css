@@ -1,0 +1,116 @@
+
+/* Menú de categorías deslizable */
+.menu-category {
+  max-width: 250px;
+  margin: 0 auto 20px auto;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+
+.category-item {
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.category-item:hover {
+  background-color: #198754; /* verde bootstrap */
+  color: #fff;
+  transform: scale(1.05);
+}
+
+/* Tarjeta de producto */
+.product-card {
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.product-card:hover {
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+/* Imagen dentro de la tarjeta */
+.product-img {
+  transition: transform 0.5s ease;
+}
+
+.product-card:hover .product-img {
+  transform: scale(1.1) rotate(1deg);
+}
+
+/* Animaciones de fadeIn y zoom */
+.animate__animated {
+  --animate-duration: 0.7s;
+}
+.search-wrapper {
+            max-width: 600px;
+            margin: 20px auto;
+        }
+
+        .search-box {
+            position: relative;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+
+        .search-box:focus-within {
+            box-shadow: 0 3px 20px rgba(0,0,0,0.1);
+            transform: translateY(-2px);
+        }
+
+        .search-input {
+            border-radius: 50px;
+            padding-left: 45px;
+            padding-right: 20px;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            height: 50px;
+        }
+
+        .search-input:focus {
+            border-color: #0d6efd;
+            box-shadow: none;
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #6c757d;
+            z-index: 10;
+        }
+
+        .search-button {
+            position: absolute;
+            right: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            border-radius: 50px;
+            padding: 8px 20px;
+            transition: all 0.3s ease;
+        }
+
+        .search-button:hover {
+            background-color: #0b5ed7;
+            transform: translateY(-50%) scale(1.05);
+        }
+
+        /* Dark theme search box */
+        .search-box.dark {
+            background-color: green;
+        }
+
+        .search-box.dark .search-input {
+            background-color: green;
+            color: #fff;
+        }
+
+        .search-box.dark .search-input::placeholder {
+            color: white;
+        }
+
+        .search-box.dark .search-icon {
+            color: white;
+        }

@@ -1,0 +1,41 @@
+<div class="container-xl">
+  <div class="col">
+    <div class="row">
+      <h1>Pedidos</h1>
+      <p>Aquí puedes ver y gestionar tus pedidos realizados.</p>
+    </div>
+    <div class="d-flex flex-column">
+      <!-- Contenido del componente de pedidos -->
+      <div *ngIf="orders && orders.length > 0;">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Pedido ID</th>
+              <th>Fecha</th>
+              <th>Total</th>
+              <th>Estado</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let order of orders">
+
+              <td>{{ order.id }}</td>
+              <td>{{ order.order_date | date:'short' }}</td>
+              <td>{{ order.total_amount }} €</td>
+              <td>
+                {{ order.status === 'pending' ? 'Pendiente' :
+                order.status === 'completed' ? 'Completado' :
+                order.status === 'canceled' ? 'Cancelado' :
+                order.status }}
+              </td>
+              <td>
+                <button class="btn btn-info" (click)="verDetalles(order.id)">Ver Detalles</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <a class="btn btn-info m-auto" routerLink="/Perfil">Vovler</a>
+    </div>
+  </div>

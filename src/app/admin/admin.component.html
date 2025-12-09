@@ -1,0 +1,33 @@
+<header *ngIf="isAdmin()">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/admin/categoriesManage">Gestionar Categorias</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/admin/products">Gestionar productos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/admin/users">Usuarios</a>
+          </li>
+
+        </ul>
+      </div>
+      <div *ngIf="nombre && email; else noUser">
+        <p>👋 Bienvenido, <a routerLink="Perfil"><strong>{{ nombre }}</strong></a></p>
+      </div>
+
+      <ng-template #noUser>
+      </ng-template>
+
+    </div>
+  </nav>
+
+</header>
+<router-outlet></router-outlet>

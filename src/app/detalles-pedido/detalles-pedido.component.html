@@ -1,0 +1,22 @@
+<div *ngIf="detalles?.products?.length > 0; else noProducts" class="container my-4">
+  <h2 class="text-center mb-4">Pedido #{{ detalles.order_id }}</h2>
+  <p class="text-center">Total: €{{ detalles.price }} | Estado: {{ detalles.status }}</p>
+
+  <div class="row g-4 mt-3">
+    <div class="col-md-3 col-sm-6" *ngFor="let item of detalles.products">
+      <div class="card h-100 shadow-sm product-card">
+        <div class="card-body text-center">
+          <h5 class="card-title">{{ item.product.name }}</h5>
+          <p class="card-text text-muted">{{ item.product.description }}</p>
+          <p>Cantidad: {{ item.quantity }}</p>
+          <p>Precio: €{{ item.price }}</p>
+          <img [src]="item.product.image" alt="{{ item.product.name }}" class="img-fluid rounded">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #noProducts>
+  <p class="text-center mt-5">Este pedido no tiene productos.</p>
+</ng-template>

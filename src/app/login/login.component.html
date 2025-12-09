@@ -1,0 +1,39 @@
+<!-- ...existing code... -->
+<div class="container py-4">
+  <div class="col-md-4 mx-auto">
+    <div class="card shadow-sm border-0">
+      <div class="card-header bg-white">
+        <div class="d-flex justify-content-between align-items-center">
+          <h5 class="mb-0">{{ showRegister ? 'Registro' : 'Iniciar sesión' }}</h5>
+          <button type="button" class="btn btn-outline-secondary btn-sm rounded-circle h-100" (click)="toggleView()"
+            title="{{ showRegister ? 'Ir a iniciar sesión' : 'Ir a registrarse' }}">
+            {{ showRegister ? '←' : '→' }}
+          </button>
+        </div>
+      </div>
+
+      <div class="card-body">
+        <!-- Mensaje -->
+        <div *ngIf="message" class="alert alert-info">{{ message }}</div>
+
+        <!-- LOGIN -->
+        <form *ngIf="!showRegister" (ngSubmit)="onLogin()" autocomplete="on">
+          <div class="mb-3">
+            <label for="loginEmail" class="form-label">Correo electrónico</label>
+            <input id="loginEmail" name="loginEmail" type="email" class="form-control" placeholder="tu@email.com"
+              [(ngModel)]="loginEmail" required>
+          </div>
+          <div class="mb-3">
+            <label for="loginPass" class="form-label">Contraseña</label>
+            <input id="loginPass" name="loginPass" type="password" class="form-control" placeholder="••••••••"
+              [(ngModel)]="loginPassword" required>
+          </div>
+          <button type="submit" class="btn w-100 text-white" style="background:#62C2BD;">Iniciar sesión</button>
+        </form>
+      </div>
+
+    </div>
+    <a class="nav-link" routerLink="/registro">Registrate</a>
+  </div>
+</div>
+<!-- ...existing code... -->

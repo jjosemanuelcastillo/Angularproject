@@ -1,0 +1,79 @@
+<div class="container mt-4">
+  <h2 class="mb-4">Editar pedidos del usuario</h2>
+
+  <!-- Tabla de pedidos -->
+  <table class="table table-hover align-middle">
+    <thead class="table-dark">
+      <tr>
+        <th>ID</th>
+        <th>Precio total</th>
+        <th>Estado</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let order of orders">
+        <td>{{ order.id }}</td>
+        <td>
+          <input type="number" [(ngModel)]="order.total_amount" min="1" class="form-control form-control-sm">
+        </td>
+        <td>
+          <p>Estado actual: {{ order.status }}</p>
+          <select [(ngModel)]="order.status" class="form-select form-select-sm">
+            <option value="pendiente">Pendiente</option>
+            <option value="procesando">Procesando</option>
+            <option value="completado">Completado</option>
+            <option value="cancelado">Cancelado</option>
+          </select>
+        </td>
+        <td>
+          <button class="btn btn-success btn-sm me-2" (click)="saveOrder(order)">
+            Guardar
+          </button>
+          <button class="btn btn-info btn-sm" (click)="loadOrderDetails(order.id)" data-bs-toggle="modal" data-bs-target="#detalleModal">
+            Ver Detalles
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Mensaje si no hay pedidos -->
+  <div *ngIf="orders.length === 0" class="alert alert-info">
+    No hay pedidos para este usuario.
+  </div>
+
+  <!-- Modal para detalles del pedido -->
+  <div class="modal fade" id="detalleModal" tabindex="-1" aria-labelledby="detalleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header bg-info text-white">
+          <h5 class="modal-title" id="detalleModalLabel">Detalles del pedido</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body">
+          <table class="table table-bordered table-sm">
+            <thead class="table-light">
+              <tr>
+                <th>Producto</th>
+                <th>Cantidad</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let p of detalles.products">
+                <td>{{ p.product.name }}</td>
+                <td>{{ p.cantity }}</td>
+              </tr>
+            </tbody>
+          </table>
+          <div *ngIf="detalles.products.length === 0" class="alert alert-warning">
+            No hay productos para este pedido.
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

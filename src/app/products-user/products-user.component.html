@@ -1,0 +1,54 @@
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+<!-- Dark Theme Search -->
+  <div class="search-wrapper">
+    <div class="search-box dark">
+      <i class="fas fa-search search-icon"></i>
+      <input type="text" class="form-control search-input" placeholder="Buscar...." [(ngModel)]="searchTerm">
+      <button class="btn btn-primary search-button" (click)="Busqueda()">
+        Buscar
+      </button>
+    </div>
+  </div>
+<div class="container my-5">
+  <div class="d-flex justify-content-start mb-4">
+    <button class="btn btn-outline-secondary animate__animated animate__fadeIn animate__delay-1s"
+      (click)="toggleMenu()">
+      ☰ Categorías
+    </button>
+  </div>
+
+  <!-- Menú de categorías -->
+  <div class="menu-category animate__animated" [ngClass]="{'animate__fadeInLeft': menuOpen, 'd-none': !menuOpen}">
+    <ul class="list-group shadow-sm">
+      <li *ngFor="let category of categories"
+        class="list-group-item list-group-item-action category-item animate__animated animate__fadeIn animate__delay-1s"
+        (click)="filtrarPorCategoria(category.id)">
+        {{ category.name }}
+      </li>
+    </ul>
+  </div>
+
+  <!-- Productos -->
+ <div *ngIf="filteredProducts.length > 0; else cargando" class="row g-4 mt-3">
+  <div class="col-md-3 col-sm-6" *ngFor="let product of filteredProducts; let i = index">
+    <div class="card h-100 shadow-sm product-card animate__animated animate__fadeInUp"
+      [ngClass]="'animate__delay-' + (i+1) + 's'" (click)="verProducto(product.id)" style="cursor: pointer;">
+      <div class="card-img-top overflow-hidden">
+        <img [src]="product.image" alt="{{ product.name }}"
+          class="img-fluid rounded product-img animate__animated animate__zoomIn">
+      </div>
+      <div class="card-body text-center">
+        <h5 class="card-title animate__animated animate__fadeInUp">{{ product.name }}</h5>
+        <p class="card-text text-muted animate__animated animate__fadeInUp animate__delay-1s">{{ product.description }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<ng-template #cargando>
+  <div class="text-center my-5 animate__animated animate__fadeIn">
+    <div class="spinner-border text-primary" role="status"></div>
+    <p class="mt-3">Cargando productos...</p>
+  </div>
+</ng-template>
