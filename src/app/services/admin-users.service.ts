@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AdminUsersService {
-  private apiUrl = 'https://laravelproject-1-3ei7.onrender.com/api';
+  private apiUrl = 'http://localhost/InventarioPlus/public/api';
 
   constructor(private http: HttpClient) { }
 
