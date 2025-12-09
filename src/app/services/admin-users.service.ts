@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AdminUsersService {
-  private apiUrl = 'https://laravelproject-production-87cc.up.railway.app/public/api';
+  private apiUrl = 'https://laravelproject-production-87cc.up.railway.app/api';
 
   constructor(private http: HttpClient) { }
 

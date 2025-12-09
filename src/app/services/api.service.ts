@@ -9,7 +9,7 @@ import { catchError, map } from 'rxjs/operators';
 })
 export class ApiService {
   private apiUrl = 'https://laravelproject-production-87cc.up.railway.app/api/products';
-  private apiUrl2 = 'https://laravelproject-production-87cc.up.railway.app/public/api';
+  private apiUrl2 = 'https://laravelproject-production-87cc.up.railway.app/api';
   constructor(private http: HttpClient) { }
 
   getProducts(): Observable<any[]> {
