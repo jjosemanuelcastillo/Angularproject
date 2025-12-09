@@ -8,8 +8,8 @@ import { catchError, map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class ApiService {
-  private apiUrl = 'http://localhost/public/api/products';
-  private apiUrl2 = 'http://localhost/public/api';
+  private apiUrl = 'http://localhost/InventarioPlus/public/api/products';
+  private apiUrl2 = 'http://localhost/InventarioPlus/public/api';
   constructor(private http: HttpClient) { }
 
   getProducts(): Observable<any[]> {
