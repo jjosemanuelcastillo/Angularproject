@@ -8,8 +8,8 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = 'http://localhost/InventarioPlus/public/api/auth';
-  private apiUrl2 = 'http://localhost/InventarioPlus/public/api';
+  private apiUrl = 'https://laravelproject-production-87cc.up.railway.app/public/api/auth';
+  private apiUrl2 = 'https://laravelproject-production-87cc.up.railway.app/public/api';
   private isAuthenticatedSubject = new BehaviorSubject<boolean>(false);
   isAuthenticated$ = this.isAuthenticatedSubject.asObservable();
   private userNameSubject = new BehaviorSubject<string>('');
@@ -87,6 +87,6 @@ export class AuthService {
       'Accept': 'application/json'
     });
 
-    return this.http.get(`http://localhost/InventarioPlus/public/api/users/count`, { headers });
+    return this.http.get(`https://laravelproject-production-87cc.up.railway.app/public/api/users/count`, { headers });
   }
 }

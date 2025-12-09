@@ -8,7 +8,7 @@ import { map, Observable } from 'rxjs';
 })
 export class categoryService {
 
-  private apiUrl = 'http://localhost/InventarioPlus/public/api';
+  private apiUrl = 'https://laravelproject-production-87cc.up.railway.app/public/api';
   constructor(private http: HttpClient, private router: Router) { }
 
   categories(): Observable<HttpResponse<any>> {
@@ -16,7 +16,7 @@ export class categoryService {
   }
 
   getCategoryProducts(id: number): Observable<any[]> {
-    return this.http.get<any>(`http://localhost/InventarioPlus/public/api/categoria/${id}/products`)
+    return this.http.get<any>(`https://laravelproject-production-87cc.up.railway.app/public/api/categoria/${id}/products`)
       .pipe(
         map(data => {
           if (Array.isArray(data)) return data;
