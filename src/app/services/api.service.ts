@@ -8,8 +8,8 @@ import { catchError, map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class ApiService {
-  private apiUrl = 'https://laravelproject-f6up.onrender.com/api/products';
-  private apiUrl2 = 'https://laravelproject-f6up.onrender.com/api';
+  private apiUrl = 'https://laravelproject-1-3ei7.onrender.com/api/products';
+  private apiUrl2 = 'https://laravelproject-1-3ei7.onrender.com/api';
   constructor(private http: HttpClient) { }
 
   getProducts(): Observable<any[]> {

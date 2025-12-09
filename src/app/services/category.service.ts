@@ -8,7 +8,7 @@ import { map, Observable } from 'rxjs';
 })
 export class categoryService {
 
-  private apiUrl = 'https://laravelproject-f6up.onrender.com/api';
+  private apiUrl = 'https://laravelproject-1-3ei7.onrender.com/api';
   constructor(private http: HttpClient, private router: Router) { }
 
   categories(): Observable<HttpResponse<any>> {
