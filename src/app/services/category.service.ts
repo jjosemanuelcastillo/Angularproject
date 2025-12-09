@@ -8,7 +8,7 @@ import { map, Observable } from 'rxjs';
 })
 export class categoryService {
 
-  private apiUrl = 'http://localhost/InventarioPlus/public/api';
+  private apiUrl = 'https://laravelproject-f6up.onrender.com/api';
   constructor(private http: HttpClient, private router: Router) { }
 
   categories(): Observable<HttpResponse<any>> {

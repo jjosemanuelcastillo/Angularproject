@@ -8,8 +8,8 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = 'http://localhost/InventarioPlus/public/api/auth';
-  private apiUrl2 = 'http://localhost/InventarioPlus/public/api';
+  private apiUrl = 'https://laravelproject-f6up.onrender.com/api/auth';
+  private apiUrl2 = 'https://laravelproject-f6up.onrender.com/api';
   private isAuthenticatedSubject = new BehaviorSubject<boolean>(false);
   isAuthenticated$ = this.isAuthenticatedSubject.asObservable();
   private userNameSubject = new BehaviorSubject<string>('');

@@ -8,8 +8,8 @@ import { catchError, map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class ApiService {
-  private apiUrl = 'http://localhost/InventarioPlus/public/api/products';
-  private apiUrl2 = 'http://localhost/InventarioPlus/public/api';
+  private apiUrl = 'https://laravelproject-f6up.onrender.com/api/products';
+  private apiUrl2 = 'https://laravelproject-f6up.onrender.com/api';
   constructor(private http: HttpClient) { }
 
   getProducts(): Observable<any[]> {
