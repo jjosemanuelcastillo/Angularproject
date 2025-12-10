@@ -71,8 +71,17 @@ export class AppComponent implements OnInit {
 
 
   logout() {
-    localStorage.setItem('user', '');
-    localStorage.setItem('token', '');
-    this.router.navigate(['/Login']);
-  }
+  localStorage.removeItem('user');
+  localStorage.removeItem('token');
+  localStorage.removeItem('role');
+  this.nombre = null;
+  this.email = null;
+  this.router.navigate(['/Login']);
+}
+
+
+  isLoggedIn(): boolean {
+  return !!localStorage.getItem('token');
+}
+
 }
