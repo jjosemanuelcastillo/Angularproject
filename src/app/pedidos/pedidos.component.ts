@@ -27,7 +27,6 @@ export class PedidosComponent {
 
   verDetalles(orderId: number) {
     // Lógica para ver detalles del pedido
-    console.log('Ver detalles del pedido con ID:', orderId);
     this.router.navigate(['/detalles-pedido', orderId]);
 
   }

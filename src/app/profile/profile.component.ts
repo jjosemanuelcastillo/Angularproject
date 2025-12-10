@@ -28,7 +28,6 @@ export class ProfileComponent {
     this.authService.logout().subscribe({
       //Aqui se recibe lo que devuelve la API
       next: (res) => {
-        console.log(res.message);
 
         //Eliminar el token, el nombre y el email del localstorage
         localStorage.removeItem('token');

@@ -41,7 +41,6 @@ export class LoginComponent {
       email: this.loginEmail,
       password: this.loginPassword
     };
-    console.log('Datos de login enviados:', data);
     this.authService.login(data).subscribe({
       next: (response: any) => {
         console.log('Inicio de sesión exitoso:', response);
@@ -52,14 +51,13 @@ export class LoginComponent {
         // Aquí podrías guardar token o redirigir al dashboard
         if(localStorage.getItem('role') === 'admin'){
           this.router.navigate(['/admin']);
-          location.reload();
         }else{
           this.router.navigate(['/Inicio']);
         }
       },
       error: (error) => {
         console.error('Error en login:', error);
-        this.message = 'Credenciales incorrectas ❌';
+        this.message = 'Correo o contraseña incorrecta';
       }
     });
 

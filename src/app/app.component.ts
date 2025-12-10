@@ -32,6 +32,8 @@ export class AppComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    location.reload();
+
     this.role = localStorage.getItem('role');
     console.log(this.role)
     // Escuchar cambios de ruta
@@ -69,8 +71,8 @@ export class AppComponent implements OnInit {
 
 
   logout() {
-    localStorage.setItem('user','');
-    localStorage.setItem('token','');
+    localStorage.setItem('user', '');
+    localStorage.setItem('token', '');
     this.router.navigate(['/Login']);
   }
 }
