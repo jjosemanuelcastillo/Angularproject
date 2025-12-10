@@ -32,7 +32,7 @@ export class AppComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    location.reload();
+
 
     this.role = localStorage.getItem('role');
     console.log(this.role)
