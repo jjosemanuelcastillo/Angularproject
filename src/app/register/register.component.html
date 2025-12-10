@@ -1,23 +1,68 @@
-<form (ngSubmit)="register()">
-  <div>
-    <label>Nombre:</label>
-    <input type="text" [(ngModel)]="user.name" name="name" required>
-  </div>
+<div class="container py-4">
+  <div class="col-md-4 mx-auto">
+    <div class="card shadow-sm border-0">
+      <div class="card-header bg-white">
+        <div class="d-flex justify-content-between align-items-center">
+          <h5 class="mb-0">Registro</h5>
+        </div>
+      </div>
 
-  <div>
-    <label>Email:</label>
-    <input type="email" [(ngModel)]="user.email" name="email" required>
-  </div>
+      <div class="card-body">
 
-  <div>
-    <label>Contraseña:</label>
-    <input type="password" [(ngModel)]="user.password" name="password" required>
-  </div>
+        <!-- Mensaje -->
+        <div *ngIf="message" class="alert alert-info">{{ message }}</div>
 
-  <div>
-    <label>Confirmar Contraseña:</label>
-    <input type="password" [(ngModel)]="user.password_confirmation" name="password_confirmation" required>
-  </div>
+        <form (ngSubmit)="register()">
 
-  <button type="submit">Registrarse</button>
-</form>
+          <div class="mb-3">
+            <label class="form-label">Nombre</label>
+            <input
+              type="text"
+              class="form-control"
+              [(ngModel)]="user.name"
+              name="name"
+              required>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Email</label>
+            <input
+              type="email"
+              class="form-control"
+              [(ngModel)]="user.email"
+              name="email"
+              required>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Contraseña</label>
+            <input
+              type="password"
+              class="form-control"
+              [(ngModel)]="user.password"
+              name="password"
+              required>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Confirmar contraseña</label>
+            <input
+              type="password"
+              class="form-control"
+              [(ngModel)]="user.password_confirmation"
+              name="password_confirmation"
+              required>
+          </div>
+
+          <button type="submit" class="btn w-100 text-white" style="background:#62C2BD;">
+            Registrarse
+          </button>
+
+        </form>
+
+      </div>
+    </div>
+
+    <a class="nav-link text-center mt-2" routerLink="/Login">¿Ya tienes cuenta? Inicia sesión</a>
+  </div>
+</div>
