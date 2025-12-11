@@ -37,6 +37,7 @@ export class EditUserComponent {
       next: (res) => {
         alert('Usuario actualizado');
         localStorage.setItem('name',this.name);
+        console.log(localStorage.getItem('name'));
       },
       error: (err) => {
         console.error(err);
