@@ -35,7 +35,6 @@ export class AppComponent implements OnInit {
 
 
     this.role = localStorage.getItem('role');
-    console.log(this.role)
     // Escuchar cambios de ruta
     this.router.events.subscribe(() => {
       // Esto fuerza a Angular a reevaluar el template

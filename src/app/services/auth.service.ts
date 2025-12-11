@@ -18,11 +18,11 @@ export class AuthService {
   userEmail$ = this.userEmailSubject.asObservable();
 
   constructor(private http: HttpClient, private router: Router) {
-    this.isAuthenticatedSubject.next(!!localStorage.getItem('token')); // !! convierte a boolean el localstorage(si hay una cadena de texto rellenado es true, si no false).
+    this.isAuthenticatedSubject.next(!!localStorage.getItem('token')); //convierte a boolean el localstorage(si hay una cadena de texto rellenado es true, si no false).
     const guardarNombbre = localStorage.getItem('name'); //Se guarda el nombre del usuario en una variable
     const guardarEmail = localStorage.getItem('email');
     const guardarToken = localStorage.getItem('token');
-    console.log('token:', guardarToken);
+    // console.log('token:', guardarToken);
     if (guardarNombbre) { //Si la variable guardarNombbre no es null guarda el nombre en el localstorage en el observable
       this.userNameSubject.next(guardarNombbre);
     }
