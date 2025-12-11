@@ -1,1 +1,26 @@
-<p>edit-user works!</p>
+<!-- ...existing code... -->
+<div class="container py-4">
+  <div class="col-md-4 mx-auto">
+    <div class="card shadow-sm border-0">
+
+
+      <div class="card-body">
+        <!-- Mensaje -->
+
+        <div class="container mt-4">
+          <h3>Editar Usuario</h3>
+
+          <input class="form-control mt-2" placeholder="Nombre" [(ngModel)]="name">
+          <input class="form-control mt-2" placeholder="Contraseña" [(ngModel)]="password">
+
+          <button class="btn btn-primary mt-3" (click)="update()">
+            Actualizar usuario
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- ...existing code... -->

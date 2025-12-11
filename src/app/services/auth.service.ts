@@ -89,4 +89,8 @@ export class AuthService {
 
     return this.http.get(`https://laravelproject-production-87cc.up.railway.app/api/users/count`, { headers });
   }
+
+  updateUser(id: Number,data: any): Observable<HttpResponse<any>> {
+    return this.http.put<any>(`${this.apiUrl}/edit/${id}`, data);
+  }
 }
