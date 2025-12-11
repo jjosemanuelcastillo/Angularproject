@@ -6,11 +6,14 @@
       <h3>Datos de usuario</h3>
       <p>Nombre: {{ nombre}}</p>
       <p>Email: {{ email}}</p>
-      <button class="btn btn-warning w-50" (click)="goEdit()">Editar</button>
     </div>
+
   </div>
   <!-- Agrega más detalles del perfil según sea necesario -->
   <div>
+    <li class="nav-item">
+      <button class="btn btn-warning w-50" (click)="goEdit()">Editar usuario</button>
+    </li>
     <li class="nav-item">
       <button class="btn btn-primary" (click)="goOrder()">Pedidos</button>
     </li>
