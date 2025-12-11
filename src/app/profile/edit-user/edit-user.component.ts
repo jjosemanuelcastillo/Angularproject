@@ -48,9 +48,6 @@ export class EditUserComponent {
 
       // Opcional: actualizar el campo suelto
       localStorage.setItem('name', this.name);
-
-      // Recargar vista
-      location.reload();   // Si quieres que se vea al instante
     },
     error: (err) => console.error(err)
   });
