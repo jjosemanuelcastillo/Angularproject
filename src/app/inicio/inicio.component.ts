@@ -24,8 +24,7 @@ export class InicioComponent implements OnInit {
       },
       error: (err) => console.error('Error al obtener productos (componente):', err)
     });
-
-    this.catService.productByCategory(1).subscribe({
+    this.catService.productByCategory(7).subscribe({
       next: (data) => {
         const arr = Array.isArray(data) ? data : [];
         this.productByElectronics = arr;
