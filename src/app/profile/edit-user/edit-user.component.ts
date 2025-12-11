@@ -36,6 +36,7 @@ export class EditUserComponent {
     this.userService.updateUser(this.id, data).subscribe({
       next: (res) => {
         alert('Usuario actualizado');
+        localStorage.setItem('name',this.name);
       },
       error: (err) => {
         console.error(err);
