@@ -50,7 +50,7 @@ export class EditUserComponent {
       localStorage.setItem('name', this.name);
 
       // Recargar vista
-      // location.reload();   // Si quieres que se vea al instante
+      location.reload();   // Si quieres que se vea al instante
     },
     error: (err) => console.error(err)
   });
