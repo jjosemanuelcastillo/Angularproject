@@ -28,20 +28,32 @@ export class EditUserComponent {
   }
 
   update() {
-    const data = {
-      name: this.name,
-      password: this.password
-    };
+  const data = {
+    name: this.name,
+    password: this.password
+  };
 
-    this.userService.updateUser(this.id, data).subscribe({
-      next: (res) => {
-        alert('Usuario actualizado');
-        localStorage.setItem('name',this.name);
-        console.log(localStorage.getItem('name'));
-      },
-      error: (err) => {
-        console.error(err);
+  this.userService.updateUser(this.id, data).subscribe({
+    next: (res) => {
+
+      alert('Usuario actualizado');
+
+      // Actualiza el objeto "user" entero
+      const userData = localStorage.getItem('user');
+      if (userData) {
+        const user = JSON.parse(userData);
+        user.name = this.name; // Cambiamos el nombre dentro del objeto
+        localStorage.setItem('user', JSON.stringify(user));
       }
-    });
-  }
+
+      // Opcional: actualizar el campo suelto
+      localStorage.setItem('name', this.name);
+
+      // Recargar vista
+      // location.reload();   // Si quieres que se vea al instante
+    },
+    error: (err) => console.error(err)
+  });
+}
+
 }
