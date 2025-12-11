@@ -21,6 +21,7 @@ export class ProfileComponent {
   */
   nombre: string | null = null;
   email: string | null = null;
+  id: Number | null = null;
 
   //metodo para cerrar sesión
   logout() {
@@ -58,6 +59,7 @@ export class ProfileComponent {
       const user = JSON.parse(userData);
       this.nombre = user.name;
       this.email = user.email;
+      this.id = user.id;
       console.log('Nombre guardado en localStorage:', this.nombre);
       console.log('Email guardado en localStorage:', this.email);
     } else {
@@ -73,5 +75,11 @@ export class ProfileComponent {
       this.router.navigate(['/pedidos']);
     }
   }
+  goEdit() {
+  if (this.id) {
+    this.router.navigate(['/editar', this.id]);
+  }
+}
+
 
 }
