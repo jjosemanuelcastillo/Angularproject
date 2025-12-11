@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-profile',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,FormsModule],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.css'
 })
