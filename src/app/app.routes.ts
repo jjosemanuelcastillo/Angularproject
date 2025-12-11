@@ -19,6 +19,7 @@ import { UserEditAdminComponent } from './admin/user-edit-admin/user-edit-admin.
 import { AppComponent } from './app.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { HelpComponent } from './help/help.component';
+import { EditUserComponent } from './profile/edit-user/edit-user.component';
 
 export const routes: Routes = [
   { path: '', component: InicioComponent },
@@ -33,6 +34,7 @@ export const routes: Routes = [
   { path: 'compra/:id', component: CompraComponent },
   { path: 'pedidos', component: PedidosComponent },
   { path: 'detalles-pedido/:id', component: DetallesPedidoComponent},
+  { path: 'editar/:id', component: EditUserComponent},
 
   // Rutas para administrador
   {
