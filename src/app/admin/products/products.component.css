@@ -1,33 +1,18 @@
-/* Permite que columnas largas ocupen más espacio */
-td:nth-child(1),
-th:nth-child(1),
-td:nth-child(2),
-th:nth-child(2) {
-  width: 40%;
-}
-
-/* Precio y stock más compactos */
-td:nth-child(3),
-th:nth-child(3),
-td:nth-child(4),
-th:nth-child(4) {
-  width: 15%;
-}
-
-/* Acciones más pequeño */
-td:nth-child(5),
-th:nth-child(5) {
-  width: 20%;
-  white-space: nowrap !important;
-}
-
-/* Wrap de texto */
+/* Fuerza wrap de texto en todas las celdas */
 table td, table th {
   white-space: normal !important;
+  word-wrap: break-word;
   word-break: break-word;
 }
 
-/* Scroll horizontal si fuera necesario */
-.table-responsive {
-  overflow-x: auto;
+/* Asegura que ningún contenido de tabla empuje fuera del viewport */
+.product-table-wrapper {
+  overflow-x: auto !important;
+  -webkit-overflow-scrolling: touch;
+  width: 100%;
+}
+
+/* Evita desbordes por padding extra en móvil */
+table {
+  table-layout: fixed;
 }
