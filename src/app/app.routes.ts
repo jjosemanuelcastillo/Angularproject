@@ -33,8 +33,8 @@ export const routes: Routes = [
   { path: 'category/:id/products', component: ProductsUserComponent },
   { path: 'compra/:id', component: CompraComponent },
   { path: 'pedidos', component: PedidosComponent },
-  { path: 'detalles-pedido/:id', component: DetallesPedidoComponent},
-  { path: 'editar/:id', component: EditUserComponent},
+  { path: 'detalles-pedido/:id', component: DetallesPedidoComponent },
+  { path: 'editar/:id', component: EditUserComponent },
 
   // Rutas para administrador
   {
@@ -49,7 +49,8 @@ export const routes: Routes = [
       { path: 'Perfil', component: ProfileComponent },
       { path: 'users', component: UsersComponent },
       { path: 'categoriesManage', component: CategoriesComponent },
-      { path: 'users/edit/:id', component: UserEditAdminComponent }
+      { path: 'users/edit/:id', component: UserEditAdminComponent },
+      { path: 'editar/:id', component: EditUserComponent }
     ]
   },
 
