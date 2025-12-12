@@ -43,14 +43,14 @@
               </select>
             </div>
 
-            <!-- Proveedor
+            <!-- Proveedor -->
             <div class="mb-3">
               <label for="supplier" class="form-label">Proveedor</label>
               <select id="supplier" class="form-select" [(ngModel)]="id_supplier" name="supplier_id">
                 <option [ngValue]="null">Seleccione un proveedor</option>
                 <option *ngFor="let sup of suppliers" [ngValue]="sup.id">{{ sup.name }}</option>
               </select>
-            </div> -->
+            </div>
 
 
             <!-- Botones -->
