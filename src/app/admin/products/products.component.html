@@ -1,15 +1,13 @@
-<div class="container-xl py-4">
+<div class="container py-3">
 
-  <!-- Botón de agregar centrado en móviles y alineado a la izquierda en desktop -->
   <div class="d-flex justify-content-center justify-content-md-start mb-3">
     <button (click)="anadirProducto()" class="btn btn-primary">
       Agregar nuevo producto
     </button>
   </div>
 
-  <!-- Tabla responsiva -->
-  <div *ngIf="products.length > 0; else cargando" class="table-responsive shadow-sm rounded">
-    <table class="table table-bordered align-middle">
+  <div *ngIf="products.length > 0; else cargando" class="table-responsive product-table-wrapper">
+    <table class="table table-bordered align-middle text-wrap">
       <thead class="table-light">
         <tr>
           <th>Nombre</th>
@@ -21,16 +19,15 @@
       </thead>
       <tbody>
         <tr *ngFor="let product of products">
-          <td>{{ product.name }}</td>
+          <td class="text-break">{{ product.name }}</td>
           <td class="text-break">{{ product.description }}</td>
           <td>{{ product.price | currency:'USD' }}</td>
           <td>{{ product.stock_quantity }}</td>
           <td>
-            <div class="d-flex flex-column flex-sm-row gap-2 justify-content-center">
+            <div class="d-flex flex-column flex-sm-row justify-content-center gap-2">
               <button class="btn btn-danger btn-sm" (click)="eliminarProducto(product.id)">
                 Eliminar
               </button>
-
               <button class="btn btn-primary btn-sm" (click)="editarProducto(product.id)">
                 Editar
               </button>
@@ -43,7 +40,6 @@
 
 </div>
 
-<!-- Plantilla de carga -->
 <ng-template #cargando>
   <div class="text-center my-5">
     <div class="spinner-border text-primary" role="status"></div>

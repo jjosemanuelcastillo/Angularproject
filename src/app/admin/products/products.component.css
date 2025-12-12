@@ -1,0 +1,18 @@
+/* Fuerza wrap de texto en todas las celdas */
+table td, table th {
+  white-space: normal !important;
+  word-wrap: break-word;
+  word-break: break-word;
+}
+
+/* Asegura que ningún contenido de tabla empuje fuera del viewport */
+.product-table-wrapper {
+  overflow-x: auto !important;
+  -webkit-overflow-scrolling: touch;
+  width: 100%;
+}
+
+/* Evita desbordes por padding extra en móvil */
+table {
+  table-layout: fixed;
+}
