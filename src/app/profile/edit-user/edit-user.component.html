@@ -11,7 +11,7 @@
           <h3>Editar Usuario</h3>
 
           <input type="text" value="{{ nameOld }}" class="form-control mt-2"  [(ngModel)]="name">
-          <input type="text" value="{{ passwordOld }}" class="form-control mt-2"  [(ngModel)]="password">
+          <input type="text" class="form-control mt-2"  [(ngModel)]="password">
 
           <button class="btn btn-primary mt-3" (click)="update()">
             Actualizar usuario
