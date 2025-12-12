@@ -79,16 +79,7 @@ export class AuthService {
     return this.http.post(`${this.apiUrl}/logout`, {}, { headers }); // POST vacío con header
   }
 
-  //Función que recupera el valor del servidor de número de usuarios registrados.
-  getUserCount(): Observable<any> {
-    const token = localStorage.getItem('token');
-    const headers = new HttpHeaders({
-      'Authorization': `Bearer ${token}`,
-      'Accept': 'application/json'
-    });
 
-    return this.http.get(`https://laravelproject-production-87cc.up.railway.app/api/users/count`, { headers });
-  }
 
   updateUser(id: Number,data: any): Observable<HttpResponse<any>> {
     return this.http.put<any>(`${this.apiUrl}/edit/${id}`, data);

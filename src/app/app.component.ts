@@ -21,7 +21,6 @@ import { bootstrapApplication } from '@angular/platform-browser';
 
 export class AppComponent implements OnInit {
 
-  userCount: number | null = null;
   role: string | null = null;
   nombre: string | null = null;
   email: string | null = null;

@@ -14,7 +14,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class UsersComponent {
   constructor(public authService: AuthService, public users: AdminUsersService, private route: Router) { } //hace que sea visible el  servicio authService.ts
   /*Varibales para este archivo*/
-  userCount: number | null = null; //Variable para guardar el numero de usuarios registrados.
   role: string | null = null;
   nombre: string | null = null;
   email: string | null = null;

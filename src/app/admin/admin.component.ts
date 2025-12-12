@@ -13,7 +13,6 @@ export class AdminComponent {
 
   constructor(public authService: AuthService) { } //hace que sea visible el  servicio authService.ts
   /*Varibales para este archivo*/
-  userCount: number | null = null; //Variable para guardar el numero de usuarios registrados.
   role: string | null = null;
   nombre: string | null = null;
   email: string | null = null;
@@ -23,17 +22,6 @@ export class AdminComponent {
     if (!this.isAdmin()) {
 
       this.role = localStorage.getItem('role');
-
-      //Llama al metodo getUserCount() cuando el servidor responde
-      this.authService.getUserCount().subscribe({
-        next: (response) => {
-          this.userCount = response.count; //guarda el contador
-          console.log('Numero de usuarios', this.userCount);
-        },
-        error: (error) => {
-          console.error('Error', error);
-        }
-      })
     }
 
     const userData = localStorage.getItem('user'); //Guardar los datos del usuario
