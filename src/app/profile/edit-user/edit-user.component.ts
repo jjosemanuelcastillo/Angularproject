@@ -16,7 +16,8 @@ export class EditUserComponent {
   id!: number;
   name: string = '';
   password: string = '';
-
+  nameOld: string = '';
+  passwordOld: string = '';
   constructor(
     private userService: AuthService,
     private route: ActivatedRoute
@@ -25,6 +26,8 @@ export class EditUserComponent {
   ngOnInit() {
     // Obtener ID desde la URL: /edit-user/5
     this.id = Number(this.route.snapshot.paramMap.get('id'));
+    this.nameOld = localStorage.getItem('user.name') || '';
+    this.passwordOld= localStorage.getItem('user.password') || '';
   }
 
   update() {
