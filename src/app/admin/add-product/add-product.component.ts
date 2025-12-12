@@ -25,7 +25,7 @@ export class AddProductComponent {
 
   ngOnInit() {
     this.cargarCategorias();
-    // this.cargarProveedores();
+    this.cargarProveedores();
   }
 
   agregarProducto() {
@@ -51,6 +51,13 @@ export class AddProductComponent {
     this.serviceProduct.getCategories().subscribe({
       next: (res: any) => this.categories = res,
       error: (err) => console.error('Error al cargar categorías:', err)
+    });
+  }
+
+  cargarProveedores(){
+    this.serviceProduct.suppliers().subscribe({
+      next: (res: any) => this.suppliers = res,
+      error: (err) => console.error('Error al cargar los proveedores: ', err)
     });
   }
 

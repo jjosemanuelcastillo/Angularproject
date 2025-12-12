@@ -15,6 +15,7 @@ export class categoryService {
     return this.http.get<any>(`${this.apiUrl}/categorias`);
   }
 
+
   getCategoryProducts(id: number): Observable<any[]> {
     return this.http.get<any>(`https://laravelproject-production-87cc.up.railway.app/api/categoria/${id}/products`)
       .pipe(

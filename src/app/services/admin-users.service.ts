@@ -87,4 +87,8 @@ export class AdminUsersService {
     });
     return this.http.put<any>(`${this.apiUrl}/updateOrder/${id}`, data, { headers, observe: 'response' });
   }
+
+  suppliers(): Observable<HttpResponse<any>>{
+    return this.http.get<any>(`${this.apiUrl}/proveedores`);
+  }
 }
