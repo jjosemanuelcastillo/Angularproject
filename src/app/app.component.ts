@@ -48,12 +48,12 @@ export class AppComponent implements OnInit {
 
   }
 
-
+  //Metodo para alamcenar en el objeto role el rol "admin"
   isAdmin(): boolean {
     return this.role === 'admin';
 
   }
-
+  //Activa la navegación admin
   isOnAdminRoute(): boolean {
     return this.router.url.startsWith('/admin');
   }
@@ -67,19 +67,19 @@ export class AppComponent implements OnInit {
   }
 
 
-
+  //Metodo para cerrar sesión
   logout() {
-  localStorage.removeItem('user');
-  localStorage.removeItem('token');
-  localStorage.removeItem('role');
-  this.nombre = null;
-  this.email = null;
-  this.router.navigate(['/Login']);
-}
+    localStorage.removeItem('user');
+    localStorage.removeItem('token');
+    localStorage.removeItem('role');
+    this.nombre = null;
+    this.email = null;
+    this.router.navigate(['/Login']);
+  }
 
 
   isLoggedIn(): boolean {
-  return !!localStorage.getItem('token');
-}
+    return !!localStorage.getItem('token');
+  }
 
 }

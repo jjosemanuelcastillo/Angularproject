@@ -29,18 +29,19 @@ export class LoginComponent {
 
   constructor(private authService: AuthService, private router: Router) { }
 
-  // 🔹 Alternar entre login ↔ registro
+  //Alternar entre login ↔ registro
   toggleView() {
     this.showRegister = !this.showRegister;
     this.message = ''; // limpia mensajes al cambiar vista
   }
 
-  // 🔹 Iniciar sesión
+  //Iniciar sesión
   onLogin() {
     const data = {
       email: this.loginEmail,
       password: this.loginPassword
     };
+    //Petición a la API para realizar el login
     this.authService.login(data).subscribe({
       next: (response: any) => {
         console.log('Inicio de sesión exitoso:', response);
@@ -63,10 +64,4 @@ export class LoginComponent {
 
 
   }
-
-
-  // 🔹 Registrar usuario
-
-
-
 }

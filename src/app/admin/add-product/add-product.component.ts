@@ -28,6 +28,7 @@ export class AddProductComponent {
     this.cargarProveedores();
   }
 
+  //metodo de agregar  un producto
   agregarProducto() {
     const data = {
       name: this.name,
@@ -38,6 +39,7 @@ export class AddProductComponent {
       id_supplier: this.id_supplier
     };
 
+    //Petición a la API para añadir el producto
     this.serviceProduct.addProduct(data).subscribe({
       next: (res) => {
         console.log('Producto agregado:', res);
@@ -47,6 +49,7 @@ export class AddProductComponent {
     });
   }
 
+  //Metodo para cargar las categorias
   cargarCategorias() {
     this.serviceProduct.getCategories().subscribe({
       next: (res: any) => this.categories = res,
@@ -54,17 +57,11 @@ export class AddProductComponent {
     });
   }
 
+  //Metodo para cargar los proveedores
   cargarProveedores(){
     this.serviceProduct.suppliers().subscribe({
       next: (res: any) => this.suppliers = res,
       error: (err) => console.error('Error al cargar los proveedores: ', err)
     });
   }
-
-  // cargarProveedores() {
-  //   this.serviceProduct.getSuppliers().subscribe({
-  //     next: (res: any) => this.suppliers = res,
-  //     error: (err) => console.error('Error al cargar proveedores:', err)
-  //   });
-  // }
 }

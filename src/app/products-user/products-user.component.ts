@@ -13,6 +13,8 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./products-user.component.css']
 })
 export class ProductsUserComponent {
+
+  //variables
   products: any[] = [];
   filteredProducts: any[] = [];
   categories: any[] = [];
@@ -27,6 +29,8 @@ export class ProductsUserComponent {
   ) {}
 
   ngOnInit(): void {
+
+    //Petición a la APi para recoger todos los productos
     this.apiService.getProducts().subscribe({
       next: (data) => {
         this.products = data;
@@ -34,18 +38,20 @@ export class ProductsUserComponent {
       },
       error: (err) => console.error(err)
     });
-
+    //Peticion para recoger las categorías
     this.categorySercvice.categories().subscribe({
       next: (data) => this.categories = Array.isArray(data) ? data : [],
       error: (err) => console.error(err)
     });
 
+    //Recoger el valor id  para el filtro de productos por categoría
     this.route.params.subscribe(params => {
       const id = params['id'];
       if (id) this.cargarProductosPorCategoria(id);
     });
   }
 
+  //Metodo que realiza la petición a la API para recoger los productos por categoría
   cargarProductosPorCategoria(id: number) {
     this.categorySercvice.getCategoryProducts(id).subscribe({
       next: (data) => {
@@ -56,18 +62,22 @@ export class ProductsUserComponent {
     });
   }
 
+  //Metodo que hace que se abra el menu hamburguesa
   toggleMenu() {
     this.menuOpen = !this.menuOpen;
   }
 
+  //Navega a la ruta
   filtrarPorCategoria(id: number) {
     this.router.navigate(['/category', id, 'products']);
   }
 
+  //Metodo que navega a los detalles del producto
   verProducto(id: number) {
     this.router.navigate(['/products', id]);
   }
 
+  //Metodo que filtra la busqueda
   Busqueda() {
     this.filteredProducts = this.products.filter(p =>
       p.name.toLowerCase().includes(this.searchTerm.toLowerCase())
